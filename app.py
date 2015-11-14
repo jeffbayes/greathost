@@ -11,9 +11,17 @@ app = Flask(__name__)
 def home():
   return render_template('index.html')
 
+@app.route('/admin')
+def admin_page():
+	return render_template('admin.html')
+
+@app.route('/waitlist')
+def waitlist_page():
+	return render_template('waitlist.html')
+
 @app.route('/hello')
 def hello_world():
-    return 'Hello World!'
+  return 'Hello World!'
 
 if __name__ == '__main__':
-    app.run()
+  app.run()
