@@ -2,156 +2,182 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>great host</title>
-    <!-- Sets initial viewport load and disables zooming  -->
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-    <!-- SmartAddon.com Verification -->
-    <meta name="smartaddon-verification" content="936e8d43184bc47ef34e25e426c508fe" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
 
-    <!-- site css -->
-    <link rel="stylesheet" href="../static/css/site.min.css">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700,400italic,600italic,700italic,800italic,300italic" rel="stylesheet" type="text/css">
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <title>ADMIN - Great Host Restaurant Software</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/site.min.css" rel="stylesheet">
+    <link href="../static/css/bootflat.css" rel="stylesheet">
+    <link href="../static/css/glyphicons.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet"> -->
+
+    <!-- Custom styles for this template -->
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href="../static/css/custom.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- <script src="../static/assets/js/ie-emulation-modes-warning.js"></script> -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <script src="js/respond.min.js"></script>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+
     <script type="text/javascript" src="../static/js/site.min.js"></script>
   </head>
+
+
   <body>
-      <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">
-        <i class="glyphicon glyphicon-home"></i>
-      </a>
+
+  <nav id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <ul class="nav navbar-nav pull-left hidden-xs">
+      <li>
+        <a href="#">
+          <span class="glyphicon glyphicon-menu-left"></span>&nbsp;&nbsp;&nbsp;Customer
+        </a>
+      </li>
+    </ul>
+
+    
+    <div class="navbar-brand-logo">
+      <span class="navbar-brand logo" style="color: #222;">Great Host</span>
+    </div>
+
+    <ul class="nav navbar-nav pull-right hidden-xs">
+      <li>
+        <a href="/admin">
+          Administration&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-menu-right"></span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container" style="padding-top: 60px;">
+
+    <!--
+      If there are any warnings or other messages from a prior action,
+      they appear above the rest of the content, just until the next
+      action.
+      -->
+    <div class="row">
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#waitlist" aria-controls="waitlist" role="tab" data-toggle="tab">Waitlist</a></li>
+        <li role="presentation"><a href="#seated" aria-controls="seated" role="tab" data-toggle="tab">Seated</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="waitlist">
+            <div class="row">
+              <table class="table">
+                <thead>
+                  <th>Checkin Time</th>
+                  <th># in Party</th>
+                  <th>Name</th>
+                  <th>Actions</th>
+                </thead>
+                <tbody>
+                  =bp= for person in waitlist =pb=
+                  <tr>
+                    <td>=bb= person.checkin =bb=</td>
+                    <td>=bb= person.party =bb=</td>
+                    <td>=bb= person.name =bb=</td>
+                    <td>
+                      <button type="button" class="btn btn-default"><span id="checkin" class="glyphicon glyphicon-ok"></span></button>
+
+                      <button type="button" class="btn btn-default"><span id="remove" class="glyphicon glyphicon-remove"></span></button>
+                      <button type="button" class="btn btn-default"><span id="notify" class="glyphicon glyphicon-earphone"></span></button></td>
+                  </tr>
+                  <tr>
+                    <td>=bb= person.checkin =bb=</td>
+                    <td>=bb= person.party =bb=</td>
+                    <td>=bb= person.name =bb=</td>
+                    <td>
+                      <button type="button" class="btn btn-default"><span id="checkin" class="glyphicon glyphicon-ok"></span></button>
+
+                      <button type="button" class="btn btn-default"><span id="remove" class="glyphicon glyphicon-remove"></span></button>
+                      <button type="button" class="btn btn-default"><span id="notify" class="glyphicon glyphicon-earphone"></span></button></td>
+                  </tr>
+                  <tr>
+                    <td>=bb= person.checkin =bb=</td>
+                    <td>=bb= person.party =bb=</td>
+                    <td>=bb= person.name =bb=</td>
+                    <td>
+                      <button type="button" class="btn btn-default"><span id="checkin" class="glyphicon glyphicon-ok"></span></button>
+
+                      <button type="button" class="btn btn-default"><span id="remove" class="glyphicon glyphicon-remove"></span></button>
+                      <button type="button" class="btn btn-default"><span id="notify" class="glyphicon glyphicon-earphone"></span></button></td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div> <!-- Row -->
+          </div><!---END WAITLIST-->
+
+          <div role="tabpanel" class="tab-pane" id="seated">
+            <div class="row">
+              <table class="table">
+                <thead>
+                  <th>Name</th>
+                  <th>Table Id</th>
+                  <th>Seated Time</th>
+                  <th># in Party</th>
+                  <th>Actions</th>
+                </thead>
+                <tbody>
+                  =bp= for person in seated =pb=
+                  <tr>
+                    <td>=bb= person.name =bb=</td>
+                    <td>=bb= person.table =bb=</td>
+                    <td>=bb= person.seated =bb=</td>
+                    <td>=bb= person.party =bb=</td>
+                    <td>
+                      <button type="button" class="btn btn-default">
+                        <span id="checkin" class="glyphicon glyphicon-ok"></span>
+                      </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>=bb= person.name =bb=</td>
+                    <td>=bb= person.table =bb=</td>
+                    <td>=bb= person.seated =bb=</td>
+                    <td>=bb= person.party =bb=</td>
+                    <td>
+                      <button type="button" class="btn btn-default">
+                        <span id="checkin" class="glyphicon glyphicon-ok"></span>
+                      </button>
+                    </td>
+                </tr><tr>
+                    <td>=bb= person.name =bb=</td>
+                    <td>=bb= person.table =bb=</td>
+                    <td>=bb= person.seated =bb=</td>
+                    <td>=bb= person.party =bb=</td>
+                    <td>
+                      <button type="button" class="btn btn-default">
+                        <span id="checkin" class="glyphicon glyphicon-ok"></span>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div> <!-- ROW -->
+          </div><!---END SEATED-->
+        </div>
+      </div>
     </div>
   </div>
-</nav>
-      <div class="container">
-
-      <!--
-        -- If there are any warnings or other messages from a prior action,
-        -- they appear above the rest of the content, just until the next
-        -- action.
-        -->
-
-
-
-      <div class="row">
-          <div>
-
-            <!-- Nav tabs -->
-            <ul class="nav nav-tabs" role="tablist">
-              <li role="presentation" class="active"><a href="#waitlist" aria-controls="waitlist" role="tab" data-toggle="tab">Waitlist</a></li>
-              <li role="presentation"><a href="#seated" aria-controls="seated" role="tab" data-toggle="tab">Seated</a></li>
-            </ul>
-
-            <!-- Tab panes -->
-            <div class="tab-content">
-              <div role="tabpanel" class="tab-pane active" id="waitlist">
-                  <div class="row">
-      <table class="table">
-          <thead>
-              <th>Checkin Time</th>
-              <th># in Party</th>
-              <th>Name</th>
-              <th>Actions</th>
-          </thead>
-          <tbody>
-              {% for person in waitlist %}
-              <tr>
-                  <td>{{ person.checkin }}</td>
-                  <td>{{ person.party }}</td>
-                  <td>{{ person.name }}</td>
-                  <td>
-                      <button type="button" class="btn btn-default"><span id="checkin" class="glyphicon glyphicon-ok"></span></button>
-
-                      <button type="button" class="btn btn-default"><span id="remove" class="glyphicon glyphicon-remove"></span></button>
-                      <button type="button" class="btn btn-default"><span id="notify" class="glyphicon glyphicon-earphone"></span></button></td>
-              </tr>
-              <tr>
-                  <td>{{ person.checkin }}</td>
-                  <td>{{ person.party }}</td>
-                  <td>{{ person.name }}</td>
-                  <td>
-                      <button type="button" class="btn btn-default"><span id="checkin" class="glyphicon glyphicon-ok"></span></button>
-
-                      <button type="button" class="btn btn-default"><span id="remove" class="glyphicon glyphicon-remove"></span></button>
-                      <button type="button" class="btn btn-default"><span id="notify" class="glyphicon glyphicon-earphone"></span></button></td>
-              </tr>
-              <tr>
-                  <td>{{ person.checkin }}</td>
-                  <td>{{ person.party }}</td>
-                  <td>{{ person.name }}</td>
-                  <td>
-                      <button type="button" class="btn btn-default"><span id="checkin" class="glyphicon glyphicon-ok"></span></button>
-
-                      <button type="button" class="btn btn-default"><span id="remove" class="glyphicon glyphicon-remove"></span></button>
-                      <button type="button" class="btn btn-default"><span id="notify" class="glyphicon glyphicon-earphone"></span></button></td>
-              </tr>
-
-          </tbody>
-      </table>
-
-      </div>
-
-              </div><!---END WAITLIST-->
-              <div role="tabpanel" class="tab-pane" id="seated">
-
-                  <div class="row">
-                  <table class="table">
-                      <thead>
-                          <th>Name</th>
-                          <th>Table Id</th>
-                          <th>Seated Time</th>
-                          <th># in Party</th>
-                          <th>Actions</th>
-                      </thead>
-                      <tbody>
-                          {% for person in seated %}
-                          <tr>
-                              <td>{{ person.name }}</td>
-                              <td>{{ person.table }}</td>
-                              <td>{{ person.seated }}</td>
-                              <td>{{ person.party }}</td>
-                              <td>
-                            <button type="button" class="btn btn-default"><span id="checkin" class="glyphicon glyphicon-ok"></span></button>
-
-                             </td>
-                          </tr>
-                          <tr>
-                              <td>{{ person.name }}</td>
-                              <td>{{ person.table }}</td>
-                              <td>{{ person.seated }}</td>
-                              <td>{{ person.party }}</td>
-                              <td>
-                            <button type="button" class="btn btn-default"><span id="checkin" class="glyphicon glyphicon-ok"></span></button>
-
-                             </td>
-                          </tr><tr>
-                              <td>{{ person.name }}</td>
-                              <td>{{ person.table }}</td>
-                              <td>{{ person.seated }}</td>
-                              <td>{{ person.party }}</td>
-                              <td>
-                            <button type="button" class="btn btn-default"><span id="checkin" class="glyphicon glyphicon-ok"></span></button>
-
-                             </td>
-                          </tr>
-
-                      </tbody>
-                  </table>
-                  </div>
-
-
-
-
-              </div><!---END SEATED-->
-
-            </div>
-
-          </div>
-
   </body>
 </html>

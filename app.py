@@ -16,8 +16,12 @@ def admin_page():
 	return render_template('admin.html')
 
 @app.route('/waitlist')
-def waitlist_page():
+def waitlist():
 	return render_template('waitlist.html')
+
+@app.route('/test')
+def nav_bar():
+	return render_template('base-template.html')
 
 @app.route('/hello')
 def hello_world():
