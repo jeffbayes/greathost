@@ -29,11 +29,16 @@
   background-color: #DA4453;
 }
 
+.navbar {
+  border-bottom: 1px solid #FFF;
+}
+
 .navbar-inverse .navbar-text {
   color: #FFF;
 }
 .navbar-inverse .navbar-nav > li > a {
   color: #FFF;
+  border-bottom: none;
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
@@ -61,7 +66,7 @@ tr:nth-child(2n) {
   color: #FFF;
   width: 300px;
   border: none;
-  border-bottom: 1px solid #FFF;;
+  border-bottom: 1px solid #FFF;
 }
 
 .nav-tabs > li.active > a, 
@@ -83,4 +88,26 @@ tr:nth-child(2n) {
   background-color: #DA4453 !important;
   color: #000;
   border: 1px solid #FFF !important;
+}
+
+
+.nav-sidebar > .active > a, .nav-sidebar > .active > a:hover, .nav-sidebar > .active > a:focus {
+  background-color: #ED5565 !important;
+}
+
+a {
+  color: #FFF;
+}
+
+.nav-sidebar > li > a {
+  border-bottom: 1px solid white;
+}
+
+.sidebar {
+  background-color: #DA4453 !important;
+}
+
+.nav > li > a:focus, .nav > li > a:hover {
+  background-color: #ED5565;
+  color: #FFF;
 }
