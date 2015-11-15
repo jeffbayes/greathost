@@ -7,6 +7,7 @@
   <!-- <link rel="stylesheet" type="text/css" href="stylesheets/component.fullscreen-form.css"> -->
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
   <script src='../static/js/example.min.js'></script>
+  <script type="text/javascript" src="../static/js/site.min.js"></script>
 </head>
 
       <body>
@@ -24,7 +25,7 @@
                   <input class="fs-anim-lower" id="q1" name="q1" type="number" placeholder="0" required/>
                 </li>
                 <li>
-                  <label class="fs-field-label fs-anim-upper" for="q2" data-info="">Your estimated wait time is:</label>
+                  <label class="fs-field-label fs-anim-upper" for="q2" data-info="">Your estimated wait time is <span id="wait-time-span"></span></label>
                   <input class="fs-anim-lower" id="q2" name="q2" type="time" placeholder="0:00" />
                 </li>
 <li>
@@ -55,6 +56,8 @@
         <!-- /container -->
 
         <script>
+        $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+
         window.addEventListener('load', function() {
           var formWrap = document.getElementById('fs-form-wrap');
           new window.FForm(formWrap, {
@@ -63,6 +66,31 @@
             }
           });
         }, false);
+
+        var changeFunction = function(){
+          console.log("Party size has been changed...")
+          var partySize = $("#q1").val;
+          var target = $("wait-time-span");
+
+          // AJAX request
+          $.getJSON($SCRIPT_ROOT + '/_wait_time',
+            // The object to pass to the server
+            { 
+              party_size: partySize
+            },
+            // The function to call with the response
+            function(data) {
+              var waitTime = data.result;
+              console.log(waitTime);
+              // alert("Got a response: " +  waitTime);
+              target.innerHTML = (waitTime);
+            }); // End of the call to getJSON
+        }
+
+        $('input[name="q1"]').on("change", function(){
+            changeFunction();
+        });
+
         </script>
       </body>
 

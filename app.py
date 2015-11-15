@@ -2,6 +2,13 @@ from flask import Flask
 from flask import render_template
 from flask import request
 from flask import url_for
+from flask import jsonify # For AJAX transactions
+
+from pymongo import MongoClient # DB client
+import CONFIG
+import random
+import logging
+import json
 
 app = Flask(__name__)
 
@@ -27,5 +34,25 @@ def nav_bar():
 def hello_world():
   return 'Hello World!'
 
-if __name__ == '__main__':
-  app.run()
+## FUNCTIONS / ACTIONS ##
+@app.route('/_wait_time')
+def wait_time():
+	rando = random.randrange(5, 50)
+	return jsonify(result = str(rando))
+
+
+
+
+if __name__ == "__main__":
+    # App is created above so that it will
+    # exist whether this is 'main' or not
+    app.debug=CONFIG.DEBUG
+    app.logger.setLevel(logging.DEBUG)
+    # We run on localhost only if debugging,
+    # otherwise accessible to world
+    if CONFIG.DEBUG:
+        # Reachable only from the same computer
+        app.run(port=CONFIG.PORT)
+    else:
+        # Reachable from anywhere 
+        app.run(port=CONFIG.PORT,host="0.0.0.0")
