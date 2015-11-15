@@ -43,7 +43,7 @@
   <nav id="navbar" class="navbar navbar-inverse navbar-fixed-top">
     <ul class="nav navbar-nav pull-left hidden-xs">
       <li>
-        <a href="#">
+        <a href="/">
           <span class="glyphicon glyphicon-menu-left"></span>&nbsp;&nbsp;&nbsp;Customer
         </a>
       </li>
@@ -77,10 +77,11 @@
         <li role="presentation" class="active"><a href="#waitlist" aria-controls="waitlist" role="tab" data-toggle="tab">Waitlist</a></li>
         <li role="presentation"><a href="#seated" aria-controls="seated" role="tab" data-toggle="tab">Seated</a></li>
       </ul>
-
       <!-- Tab panes -->
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="waitlist">
+      {% if session.waitlist %}
+
             <div class="row">
               <table class="table">
                 <thead>
@@ -90,91 +91,70 @@
                   <th>Actions</th>
                 </thead>
                 <tbody>
-                  =bp= for person in waitlist =pb=
+
+            {% for person in session.waitlist %}
+
                   <tr>
-                    <td>=bb= person.checkin =bb=</td>
-                    <td>=bb= person.party =bb=</td>
-                    <td>=bb= person.name =bb=</td>
+                    <td>{{ person.check_time }}</td>
+                    <td>{{ person.party_size }}</td>
+                    <td>{{ person.name }}</td>
                     <td>
                       <button type="button" class="btn btn-default"><span id="checkin" class="glyphicon glyphicon-ok"></span></button>
 
                       <button type="button" class="btn btn-default"><span id="remove" class="glyphicon glyphicon-remove"></span></button>
                       <button type="button" class="btn btn-default"><span id="notify" class="glyphicon glyphicon-earphone"></span></button></td>
                   </tr>
-                  <tr>
-                    <td>=bb= person.checkin =bb=</td>
-                    <td>=bb= person.party =bb=</td>
-                    <td>=bb= person.name =bb=</td>
-                    <td>
-                      <button type="button" class="btn btn-default"><span id="checkin" class="glyphicon glyphicon-ok"></span></button>
 
-                      <button type="button" class="btn btn-default"><span id="remove" class="glyphicon glyphicon-remove"></span></button>
-                      <button type="button" class="btn btn-default"><span id="notify" class="glyphicon glyphicon-earphone"></span></button></td>
-                  </tr>
-                  <tr>
-                    <td>=bb= person.checkin =bb=</td>
-                    <td>=bb= person.party =bb=</td>
-                    <td>=bb= person.name =bb=</td>
-                    <td>
-                      <button type="button" class="btn btn-default"><span id="checkin" class="glyphicon glyphicon-ok"></span></button>
-
-                      <button type="button" class="btn btn-default"><span id="remove" class="glyphicon glyphicon-remove"></span></button>
-                      <button type="button" class="btn btn-default"><span id="notify" class="glyphicon glyphicon-earphone"></span></button></td>
-                  </tr>
+              {% endfor %}
 
                 </tbody>
               </table>
             </div> <!-- Row -->
+
+
+            {% else %}
+              <p>No one currently on the waitlist.</p>  
+            {% endif %}
           </div><!---END WAITLIST-->
 
           <div role="tabpanel" class="tab-pane" id="seated">
+
+      {% if session.seated %}
+
             <div class="row">
               <table class="table">
                 <thead>
                   <th>Name</th>
-                  <th>Table Id</th>
+                  <th>Table ID</th>
                   <th>Seated Time</th>
                   <th># in Party</th>
                   <th>Actions</th>
                 </thead>
                 <tbody>
-                  =bp= for person in seated =pb=
+                  {% for person in session.seated %}
                   <tr>
-                    <td>=bb= person.name =bb=</td>
-                    <td>=bb= person.table =bb=</td>
-                    <td>=bb= person.seated =bb=</td>
-                    <td>=bb= person.party =bb=</td>
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.table_id }}</td>
+                    <td>{{ person.seat_time }}</td>
+                    <td>{{ person.party_size }}</td>
                     <td>
                       <button type="button" class="btn btn-default">
                         <span id="checkin" class="glyphicon glyphicon-ok"></span>
                       </button>
                     </td>
                 </tr>
-                <tr>
-                    <td>=bb= person.name =bb=</td>
-                    <td>=bb= person.table =bb=</td>
-                    <td>=bb= person.seated =bb=</td>
-                    <td>=bb= person.party =bb=</td>
-                    <td>
-                      <button type="button" class="btn btn-default">
-                        <span id="checkin" class="glyphicon glyphicon-ok"></span>
-                      </button>
-                    </td>
-                </tr><tr>
-                    <td>=bb= person.name =bb=</td>
-                    <td>=bb= person.table =bb=</td>
-                    <td>=bb= person.seated =bb=</td>
-                    <td>=bb= person.party =bb=</td>
-                    <td>
-                      <button type="button" class="btn btn-default">
-                        <span id="checkin" class="glyphicon glyphicon-ok"></span>
-                      </button>
-                    </td>
-                  </tr>
+
+              {% endfor %}
                 </tbody>
               </table>
             </div> <!-- ROW -->
+            
+            {% else %}
+              <p>No one currently seated.</p>  
+            {% endif %}
           </div><!---END SEATED-->
+
+
         </div>
       </div>
     </div>
