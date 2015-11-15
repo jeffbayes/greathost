@@ -60,7 +60,7 @@
           <ul class="nav nav-sidebar">
             <li><a href="/admin">Overview <span class="sr-only">(current)</span></a></li>
             <li class="active"><a href="/admin/tables">Table Inventory</a></li>
-            <li><a href="/admin/analytics">Analytics</a></li>
+            <!-- <li><a href="/admin/analytics">Analytics</a></li> -->
             <li><a href="/admin/notifications">Notifications</a></li>
           </ul>
  <!--          <ul class="nav nav-sidebar">
@@ -77,63 +77,51 @@
           </ul> -->
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
+          <h1 class="page-header">Table Inventory</h1>
 
-          <form class="form-horizontal">
-  <fieldset>
+          <div class="row">
+              <table class="table">
+                <thead>
+                  <th>Table ID</th>
+                  <th>Max Capacity</th>
+                  <th>Actions</th>
+                </thead>
+                <tbody>
 
-  <!-- Multiple Radios -->
-  <div class="form-group">
-      <h5>Notification Settings</h5>
-      <hr>
-    <label class="col-md-4 control-label" for="radios">Warning Time</label>
-    <div class="col-md-4">
-    <div class="radio">
-      <label for="radios-0">
-        <input type="radio" name="radios" id="radios-0" value="5" checked="checked">
-        5 minutes
-      </label>
-  	</div>
-    <div class="radio">
-      <label for="radios-1">
-        <input type="radio" name="radios" id="radios-1" value="10">
-        10 minutes
-      </label>
-  	</div>
-    <div class="radio">
-      <label for="radios-2">
-        <input type="radio" name="radios" id="radios-2" value="15">
-        15 minutes
-      </label>
-  	</div>
-    <div class="radio">
-      <label for="radios-3">
-        <input type="radio" name="radios" id="radios-3" value="30">
-        30 minutes
-      </label>
-  	</div>
-    </div>
-  </div>
+                  <tr>
+                    <td>1</td>
+                    <td>4</td>
+                    <td>
+                      <button type="button" class="btn btn-default"><span id="remove" class="glyphicon glyphicon-remove"></span></button>
+                      <button type="button" class="btn btn-default"><span id="notify" class="glyphicon glyphicon-pencil"></span></button>
+                    </td>
+                  </tr>
 
-  <!-- Textarea -->
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="textMessage">Text Message</label>
-    <div class="col-md-4">
-      <textarea class="form-control" id="textMessage" name="textMessage">Enter message to send to customers.</textarea>
-    </div>
-  </div>
+                  <tr>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>
+                      <button type="button" class="btn btn-default"><span id="remove" class="glyphicon glyphicon-remove"></span></button>
+                      <button type="button" class="btn btn-default"><span id="notify" class="glyphicon glyphicon-pencil"></span></button>
+                    </td>
+                  </tr>
 
-  <!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="restaurantName">Restaurant Name</label>
-  <div class="col-md-4">
-  <input id="restaurantName" name="restaurantName" type="text" placeholder="" class="form-control input-md" required="">
+                  <tr>
+                    <td>6</td>
+                    <td>12</td>
+                    <td>
+                      <button type="button" class="btn btn-default"><span id="remove" class="glyphicon glyphicon-remove"></span></button>
+                      <button type="button" class="btn btn-default"><span id="notify" class="glyphicon glyphicon-pencil"></span></button>
+                    </td>
+                  </tr>
 
-  </div>
-</div>
+                </tbody>
+              </table>
 
-  </fieldset>
-  </form>
+              <button class="btn btn-default">New Table</button>
+            </div> <!-- Row -->
+
+
 
 
 
