@@ -1,5 +1,5 @@
 .navbar-brand.logo {
-  color: #222;
+  color: #FFF;
   font-family: 'Pacifico', cursive;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -11,7 +11,7 @@
 
 .navbar-brand.logo:focus,
 .navbar-brand.logo:hover, {
-  color: #222;
+  color: #FFF;
 }
 
 .navbar-brand {
@@ -26,23 +26,61 @@
 
 .nav,
 .navbar {
-  background-color: #eeeeee;
+  background-color: #DA4453;
 }
 
 .navbar-inverse .navbar-text {
-  color: #222;
+  color: #FFF;
 }
 .navbar-inverse .navbar-nav > li > a {
-  color: #222;
+  color: #FFF;
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
-  color: #777;
-  background-color: #bbb;
+  color: #FFF;
+  background-color: #DA4453;
 }
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus {
-  color: #777;
-  background-color: #bbb;
+  color: #FFF;
+  background-color: #DA4453;
+}
+
+body {
+  background-color: #DA4453;
+  color: #FFF;
+  font-size: 16px;
+}
+
+tr:nth-child(2n) {
+  background-color: #ED5565;
+}
+
+.nav-tabs > li > a {
+  color: #FFF;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #FFF;;
+}
+
+.nav-tabs > li.active > a, 
+.nav-tabs > li.active > a:focus, 
+.nav-tabs > li.active > a:hover {
+  background-color: #ED5565 !important;
+  border: 1px solid #FFF;
+  border-bottom: none;
+  color: #FFF;
+}
+
+.btn-default {
+  background-color: #ED5565 !important;
+  color: #FFF;
+  border: 1px solid #FFF !important;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active {
+  background-color: #DA4453 !important;
+  color: #000;
+  border: 1px solid #FFF !important;
 }

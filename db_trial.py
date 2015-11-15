@@ -15,9 +15,10 @@ try:
     db = dbclient.greathost
     signinCollection = db.signins
     tableCollection = db.tables
+    notiCollection = db.notifications
 
 except:
-    print("Failure opening database.  Is Mongo running? Correct password?")
+    print("Failure opening database. Is Mongo running? Correct password?")
     sys.exit(1)
 
 #
@@ -30,8 +31,8 @@ except:
 record = { "type": "signins",
            "name": "John",
            "check_time": arrow.utcnow().naive,
-           "seat_time": arrow.utcnow().naive,
-           "leave_time": arrow.utcnow().naive,
+           "seat_time": "False",
+           "leave_time": "False",
            "party_size": 5,
            "table_id": "identifier",
            "requests": "This is a sample memo",
@@ -44,8 +45,8 @@ signinCollection.insert(record)
 record = { "type": "signins",
            "name": "Jeff",
            "check_time": arrow.utcnow().replace(days=+1).naive,
-           "seat_time": arrow.utcnow().replace(days=+1).naive,
-           "leave_time": arrow.utcnow().replace(days=+1).naive,
+           "seat_time": "False",
+           "leave_time": "False",
            "party_size": 12,
            "table_id": "iagasegsrgr",
            "requests": "This is a samplae megagmo",
@@ -56,6 +57,20 @@ signinCollection.insert(record)
 
 ##### TABLES #####
 
+record = {  "type": "tables",
+            "table_id": "22",
+            "max_occupancy": "5"
+        }
+
+tableCollection.insert(record)
+
+##### NOTIFICATIONS #####
+
+record = {  "type": "notifications",
+            "text_time": 5,
+            "text_message": "Stringity string strang you"
+        }
+
 
 #
 # Read database --- May be useful to see what is in there,
@@ -64,17 +79,28 @@ signinCollection.insert(record)
 # you'll want a loop for printing them in a nicer format. 
 #
 
-records = [ ] 
+signinRecords = [ ] 
+tableRecords = [ ]
 for record in signinCollection.find( { "type": "signins" } ):
-  records.append(
+  signinRecords.append(
     {  "type": record['type'],
        "name": record['name'],
        "check_time": arrow.get(record['check_time']).to('local').isoformat(),
-       "seat_time": arrow.get(record['seat_time']).to('local').isoformat(),
-       "leave_time": arrow.get(record['leave_time']).to('local').isoformat(),
+       "seat_time": record['seat_time'],
+       "leave_time": record['leave_time'],
        "party_size": record['party_size'],
+       "table_id": record['table_id'],
        "requests": record['requests'],
        "contacted": record['contacted']
       })
 
-print(records)
+for record in tableCollection.find( { "type": "tables"} ):
+  tableRecords.append({  
+    "type": record['type'],
+    "table_id": record['table_id'],
+    "max_occupancy": record['max_occupancy']
+  })
+
+
+print(signinRecords)
+print(tableRecords)
