@@ -1,3 +1,6 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+
 .navbar-brand.logo {
   color: #FFF;
   font-family: 'Pacifico', cursive;
@@ -29,6 +32,12 @@
   background-color: #DA4453;
 }
 
+.nav-tabs {
+background-color: #AAB2BD;
+border-radius:4px 4px 4px 4px;
+-webkit-border-radius: 4px 4px 4px 4px;;
+}
+
 .navbar-inverse .navbar-text {
   color: #FFF;
 }
@@ -47,30 +56,67 @@
   background-color: #DA4453;
 }
 
-body {
-  background-color: #DA4453;
-  color: #FFF;
-  font-size: 16px;
+
+
+
+
+
+h1 {
+    font-family: "proxima-nova",sans-serif;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 60px;
+    margin-left: -3px;
+    line-height: 1em;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 8px;
+    text-rendering: optimizeLegibility;
 }
 
+table {
+    width: 80%;
+    margin: auto;
+}
+
+table, th, td {
+    /*border: 1px solid #fff;*/
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+}
+
+
+
+/*body {*/
+  /*background-color: #DA4453;*/
+  /*color: #FFF;
+  font-size: 16px;
+}*/
+
 tr:nth-child(2n) {
-  background-color: #ED5565;
+    background-color: #e6e9ed;
+
+  /*background-color: #ED5565;*/
 }
 
 .nav-tabs > li > a {
   color: #FFF;
   width: 300px;
   border: none;
-  border-bottom: 1px solid #FFF;;
+  /*border-bottom: 1px solid #FFF;;*/
 }
 
-.nav-tabs > li.active > a, 
-.nav-tabs > li.active > a:focus, 
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
 .nav-tabs > li.active > a:hover {
-  background-color: #ED5565 !important;
+  background-color: #ed5565 !important;
   border: 1px solid #FFF;
   border-bottom: none;
-  color: #FFF;
+  color: #AAB2BD;
 }
 
 .btn-default {
@@ -82,5 +128,5 @@ tr:nth-child(2n) {
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active {
   background-color: #DA4453 !important;
   color: #000;
-  border: 1px solid #FFF !important;
+  /*border: 1px solid #FFF !important;*/
 }
