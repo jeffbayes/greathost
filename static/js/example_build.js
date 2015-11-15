@@ -147,6 +147,9 @@ FForm.prototype._addControls = function () {
 		inner: 'Continue',
 		appendTo: this.ctrls
 	});
+	// continue button (jump to next field)
+
+	// this._hideCtrl(this.ctrlSubmit);
 	this._showCtrl(this.ctrlContinue);
 
 	// navigation dots
@@ -252,10 +255,10 @@ FForm.prototype._initEvents = function () {
 
 				/*
 				// for our custom select we would do something like:
-				case 'div' : 
+				case 'div' :
 					[].slice.call( fld.querySelectorAll( 'ul > li' ) ).forEach( function( inp ) {
 						inp.addEventListener( 'click', function(ev) { self._nextField(); } );
-					} ); 
+					} );
 					break;
 				*/
 			}
@@ -285,8 +288,21 @@ FForm.prototype._nextField = function (backto) {
 	this.isAnimating = true;
 
 	// check if on last step
-	this.isLastStep = this.current === this.fieldsCount - 1 && backto === undefined ? true : false;
 
+	this.isLastStep = this.current === this.fieldsCount - 1 && backto === undefined ? true : false;
+	if (this.current === this.fieldsCount - 2){
+		this.ctrlSubmit = createElement('button', {
+			cName: 'fs-submit',
+			inner: 'Submit',
+			action: '/',
+			appendTo: this.ctrls
+		});
+		this._ctrl
+		this._showCtrl(this.ctrlSubmit);
+		this._hideCtrl(this.ctrlContinue);
+
+
+	}
 	// clear any previous error messages
 	this._clearError();
 
@@ -345,10 +361,12 @@ FForm.prototype._nextField = function (backto) {
 				self._hideCtrl(self.ctrlProgress);
 				self._hideCtrl(self.ctrlContinue);
 				self._hideCtrl(self.ctrlFldStatus);
+
+				document.location.reload(true);
 				// replace class fs-form-full with fs-form-overview
-				classie.remove(self.formEl, 'fs-form-full');
-				classie.add(self.formEl, 'fs-form-overview');
-				classie.add(self.formEl, 'fs-show');
+				// classie.remove(self.formEl, 'fs-form-full');
+				// classie.add(self.formEl, 'fs-form-overview');
+				//classie.add(self.formEl, 'fs-show');
 				// callback
 				self.options.onReview();
 			}
@@ -388,7 +406,7 @@ FForm.prototype._nextField = function (backto) {
  */
 FForm.prototype._showField = function (pos) {
 	console.log('pos', pos);
-	if (pos === this.current || pos < 0 || pos > this.fieldsCount - 1) {
+	if (pos === this.current || pos < 0 || pos > this.fieldsCount - 2) {
 		return false;
 	}
 	this._nextField(pos);
@@ -539,7 +557,7 @@ module.exports = require('./lib/classie');
 /*!
  * classie - class helper functions
  * from bonzo https://github.com/ded/bonzo
- * 
+ *
  * classie.has( elem, 'my-class' ) -> true/false
  * classie.add( elem, 'my-new-class' )
  * classie.remove( elem, 'my-unwanted-class' )
