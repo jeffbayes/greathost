@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>great host</title>
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- SmartAddon.com Verification -->
+    <meta name="smartaddon-verification" content="936e8d43184bc47ef34e25e426c508fe" />
+
+    <!-- site css -->
+    <link rel="stylesheet" href="../static/css/site.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700,400italic,600italic,700italic,800italic,300italic" rel="stylesheet" type="text/css">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../static/js/site.min.js"></script>
+  </head>
+  <body>
+      <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <i class="glyphicon glyphicon-home"></i>
+      </a>
+    </div>
+  </div>
+</nav>
+      <div class="container">
+
+      <!--
+        -- If there are any warnings or other messages from a prior action,
+        -- they appear above the rest of the content, just until the next
+        -- action.
+        -->
+
+
+
+      <div class="row">
+          <div>
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#waitlist" aria-controls="waitlist" role="tab" data-toggle="tab">Waitlist</a></li>
+              <li role="presentation"><a href="#seated" aria-controls="seated" role="tab" data-toggle="tab">Seated</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="waitlist">
+                  <div class="row">
+      <table class="table">
+          <thead>
+              <th>Checkin Time</th>
+              <th># in Party</th>
+              <th>Name</th>
+              <th>Actions</th>
+          </thead>
+          <tbody>
+              {% for person in waitlist %}
+              <tr>
+                  <td>{{ person.checkin }}</td>
+                  <td>{{ person.party }}</td>
+                  <td>{{ person.name }}</td>
+                  <td>
+                      <button type="button" class="btn btn-default"><span id="checkin" class="glyphicon glyphicon-ok"></span></button>
+
+                      <button type="button" class="btn btn-default"><span id="remove" class="glyphicon glyphicon-remove"></span></button>
+                      <button type="button" class="btn btn-default"><span id="notify" class="glyphicon glyphicon-earphone"></span></button></td>
+              </tr>
+              <tr>
+                  <td>{{ person.checkin }}</td>
+                  <td>{{ person.party }}</td>
+                  <td>{{ person.name }}</td>
+                  <td>
+                      <button type="button" class="btn btn-default"><span id="checkin" class="glyphicon glyphicon-ok"></span></button>
+
+                      <button type="button" class="btn btn-default"><span id="remove" class="glyphicon glyphicon-remove"></span></button>
+                      <button type="button" class="btn btn-default"><span id="notify" class="glyphicon glyphicon-earphone"></span></button></td>
+              </tr>
+              <tr>
+                  <td>{{ person.checkin }}</td>
+                  <td>{{ person.party }}</td>
+                  <td>{{ person.name }}</td>
+                  <td>
+                      <button type="button" class="btn btn-default"><span id="checkin" class="glyphicon glyphicon-ok"></span></button>
+
+                      <button type="button" class="btn btn-default"><span id="remove" class="glyphicon glyphicon-remove"></span></button>
+                      <button type="button" class="btn btn-default"><span id="notify" class="glyphicon glyphicon-earphone"></span></button></td>
+              </tr>
+
+          </tbody>
+      </table>
+
+      </div>
+
+              </div><!---END WAITLIST-->
+              <div role="tabpanel" class="tab-pane" id="seated">
+
+                  <div class="row">
+                  <table class="table">
+                      <thead>
+                          <th>Name</th>
+                          <th>Table Id</th>
+                          <th>Seated Time</th>
+                          <th># in Party</th>
+                          <th>Actions</th>
+                      </thead>
+                      <tbody>
+                          {% for person in seated %}
+                          <tr>
+                              <td>{{ person.name }}</td>
+                              <td>{{ person.table }}</td>
+                              <td>{{ person.seated }}</td>
+                              <td>{{ person.party }}</td>
+                              <td>
+                            <button type="button" class="btn btn-default"><span id="checkin" class="glyphicon glyphicon-ok"></span></button>
+
+                             </td>
+                          </tr>
+                          <tr>
+                              <td>{{ person.name }}</td>
+                              <td>{{ person.table }}</td>
+                              <td>{{ person.seated }}</td>
+                              <td>{{ person.party }}</td>
+                              <td>
+                            <button type="button" class="btn btn-default"><span id="checkin" class="glyphicon glyphicon-ok"></span></button>
+
+                             </td>
+                          </tr><tr>
+                              <td>{{ person.name }}</td>
+                              <td>{{ person.table }}</td>
+                              <td>{{ person.seated }}</td>
+                              <td>{{ person.party }}</td>
+                              <td>
+                            <button type="button" class="btn btn-default"><span id="checkin" class="glyphicon glyphicon-ok"></span></button>
+
+                             </td>
+                          </tr>
+
+                      </tbody>
+                  </table>
+                  </div>
+
+
+
+
+              </div><!---END SEATED-->
+
+            </div>
+
+          </div>
+
+  </body>
+</html>
