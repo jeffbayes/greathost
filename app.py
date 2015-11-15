@@ -18,10 +18,6 @@ app = Flask(__name__)
 def home():
   return render_template('index.html')
 
-@app.route('/admin')
-def admin_page():
-	return render_template('admin.html')
-
 @app.route('/waitlist')
 def waitlist():
 	return render_template('waitlist.html')
@@ -30,9 +26,25 @@ def waitlist():
 def nav_bar():
 	return render_template('base-template.html')
 
-@app.route('/hello')
-def hello_world():
-  return 'Hello World!'
+@app.route('/admin')
+@app.route('/admin/')
+@app.route('/admin/overview')
+def admin_page():
+	return render_template('admin-overview.html')
+
+@app.route('/admin/tables')
+def table_inventory():
+	return render_template('admin-tables.html')
+
+@app.route('/admin/notifications')
+def notifications_settings():
+	return render_template('admin-notifications.html')
+
+@app.route('/admin/analytics')
+def analytics():
+	return render_template('admin-analytics.html')
+
+
 
 ## FUNCTIONS / ACTIONS ##
 @app.route('/_wait_time')
