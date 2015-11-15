@@ -1,5 +1,7 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 
+body {
+    font-family: 'Raleway', sans-serif;
+}
 
 .navbar-brand.logo {
   color: #FFF;
@@ -29,18 +31,16 @@
 
 .nav,
 .navbar {
-  background-color: #DA4453;
+font-family: 'Raleway', sans-serif;
+  background-color: #ed5565;
+  border: none;
 }
 
-<<<<<<< HEAD
 .nav-tabs {
+font-size:1.1em;
 background-color: #AAB2BD;
 border-radius:4px 4px 4px 4px;
 -webkit-border-radius: 4px 4px 4px 4px;;
-=======
-.navbar {
-  border-bottom: 1px solid #FFF;
->>>>>>> 291b65f2edff4ae5c945357a3526907a958826e4
 }
 
 .navbar-inverse .navbar-text {
@@ -62,14 +62,9 @@ border-radius:4px 4px 4px 4px;
   background-color: #DA4453;
 }
 
-
-
-
-
-
 h1 {
-    font-family: "proxima-nova",sans-serif;
-    letter-spacing: -0.01em;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 0.02em;
     font-weight: 700;
     font-style: normal;
     font-size: 60px;
@@ -83,6 +78,7 @@ h1 {
 
 table {
     width: 80%;
+    background-color: #E6E9ED;
     margin: auto;
 }
 
@@ -104,9 +100,9 @@ th, td {
 }*/
 
 tr:nth-child(2n) {
-    background-color: #e6e9ed;
+    /*background-color: #e6e9ed;*/
 
-  /*background-color: #ED5565;*/
+  background-color: #ED5565;
 }
 
 .nav-tabs > li > a {
@@ -121,7 +117,7 @@ tr:nth-child(2n) {
   background-color: #ed5565 !important;
   border: 1px solid #FFF;
   border-bottom: none;
-  color: #AAB2BD;
+  color: #fff;
 }
 
 .btn-default {
