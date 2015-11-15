@@ -139,6 +139,7 @@ a:hover, a:focus {
 .fs-progress,
 .fs-numbers,
 button.fs-continue,
+button.fs-submit,
 .fs-message-error,
 .fs-message-final {
     visibility: hidden;
@@ -170,7 +171,7 @@ button.fs-continue,
 
 /* Hide the submit button */
 .fs-form .fs-submit {
-    display: none;
+    /*display: none;*/
 }
 
 /* Fields */
@@ -412,8 +413,8 @@ button.fs-continue,
     width: 100%;
     height: 200px;
     border: 2px solid rgba(0,0,0,0.2);
-    // background-color: transparent;
-    // color: #fffed8;
+    background-color: transparent;
+    color: #fff;
     font-weight: 700;
     font-size: 0.85em;
     resize: none;
@@ -683,7 +684,7 @@ button.fs-continue {
     border-color: #232529;
     color: #232529;
 }
-
+button.fs-submit,
 button.fs-continue {
     position: fixed;
     right: 0;
