@@ -25,18 +25,18 @@
                   <input class="fs-anim-lower" id="q1" name="q1" type="number" placeholder="0" required/>
                 </li>
                 <li>
-                  <label class="fs-field-label fs-anim-upper" for="q2" data-info="">Your estimated wait time is <span id="wait-time-span"></span></label>
-                  <input class="fs-anim-lower" id="q2" name="q2" type="time" placeholder="0:00" />
+                  <!-- replaced a data-info with for -->
+                  <label class="fs-field-label fs-anim-upper" for="q2" for="">Your estimated wait time is 
+                    <span id="wait-time-span">calculating<span class="ellipsis"></span></span>
+                  </label>
+                  <label class="fs-field-label fs-anim-upper" for="q2" for="">Please enter your info and we will text you when your table is ready.</label>
+                  <input class="fs-anim-lower" id="q2" name="q2" type="text" placeholder="Name:" required/><br>
+                  <input class="fs-anim-lower" id="q2" name="q2" type="text" placeholder="Phone:" required/>
                 </li>
-<li>
-                    <label class="fs-field-label fs-anim-upper" for="q3" data-info="">Please enter your info and we will text you when your table is ready.</label>
-                    <input class="fs-anim-lower" id="q3" name="q3" type="text" placeholder="Name:" required/><br>
-                    <input class="fs-anim-lower" id="q3" name="q3" type="text" placeholder="Phone:" required/>
-                  </li>
 
                 <li>
                   <label class="fs-field-label fs-anim-upper" for="q4">Do you have any special requests?</label>
-<textarea class="fs-anim-lower" id="q4" name="q4" placeholder="Describe here"></textarea>
+                  <textarea class="fs-anim-lower" id="q4" name="q4" placeholder="Describe here"></textarea>
                 </li>
 
                 <li>
@@ -70,7 +70,8 @@
         var changeFunction = function(){
           console.log("Party size has been changed...")
           var partySize = $("#q1").val;
-          var target = $("wait-time-span");
+          var target = $("#wait-time-span");
+          console.log(target[0]);
 
           // AJAX request
           $.getJSON($SCRIPT_ROOT + '/_wait_time',
@@ -83,13 +84,38 @@
               var waitTime = data.result;
               console.log(waitTime);
               // alert("Got a response: " +  waitTime);
-              target.innerHTML = (waitTime);
+              target[0].innerHTML = (waitTime);
             }); // End of the call to getJSON
         }
 
         $('input[name="q1"]').on("change", function(){
             changeFunction();
         });
+
+        ellipsis = {
+          'value' : ['', '.', '..', '...'],
+          'count' : 0,
+          'run' : false,
+          'timer' : null,
+          'element' : '.ellipsis',
+          'start' : function () {
+            var t = this;
+            this.run = true;
+            this.timer = setInterval(function () {
+              if (t.run) {
+                $(t.element).html(t.value[t.count % t.value.length]).text();
+                t.count++;
+              }
+            }, 250);
+          },
+          'stop' : function () {            
+            this.run = false;
+            clearInterval(this.timer);
+            this.count = 0;
+          }
+        }
+
+        ellipsis.start();
 
         </script>
       </body>

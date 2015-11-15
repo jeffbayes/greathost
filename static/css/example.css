@@ -299,12 +299,12 @@ button.fs-continue,
     color: rgba(0,0,0,0.5);
 }
 
-.fs-fields [required] {
+/*.fs-fields [required] {
     background-image: url(../img/abacusstar.svg);
     background-position: top right;
     background-size: 18px;
     background-repeat: no-repeat;
-}
+}*/
 
 .fs-fields input:focus {
     background-color: #ED5565; /* Fixes chrome bug with placeholder */
@@ -722,7 +722,7 @@ button.fs-continue:hover {
     z-index: 800;
     max-width: 960px;
     width: 70%;
-    color: #eb7e7f;
+    color: #FFF70D;
     font-weight: 700;
     font-size: 1em;
     opacity: 0;

@@ -38,7 +38,8 @@ def hello_world():
 @app.route('/_wait_time')
 def wait_time():
 	rando = random.randrange(5, 50)
-	return jsonify(result = str(rando))
+	wait_time = str(rando) + " minutes."
+	return jsonify(result = wait_time)
 
 
 
