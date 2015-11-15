@@ -296,6 +296,10 @@ FForm.prototype._nextField = function (backto) {
 			inner: 'Submit',
 			appendTo: this.ctrls
 		});
+		console.log(this.ctrlSubmit);
+		this.ctrlSubmit.onclick( function(){
+			console.log("hi!");
+		});
 
 
 		this._showCtrl(this.ctrlSubmit);
