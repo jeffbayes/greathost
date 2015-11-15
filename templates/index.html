@@ -6,8 +6,10 @@
   <link rel="stylesheet" type="text/css" href="../static/css/example.css">
   <!-- <link rel="stylesheet" type="text/css" href="stylesheets/component.fullscreen-form.css"> -->
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
-  <script src='../static/js/example.min.js'></script>
-  <script type="text/javascript" src="../static/js/site.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <script src='../static/js/example_build.js'></script>
+  <!-- <script type="text/javascript" src="../static/js/site.min.js"></script> -->
 </head>
 
       <body>
@@ -25,22 +27,24 @@
                   <input class="fs-anim-lower" id="q1" name="q1" type="number" placeholder="0" required/>
                 </li>
                 <li>
+                    <div id="custInfo">
                   <!-- replaced a data-info with for -->
-                  <label class="fs-field-label fs-anim-upper" for="q2" for="">Your estimated wait time is 
+                  <label class="fs-field-label fs-anim-upper" for="q2" style="text-align:center;width:100%;">Your estimated wait time is
                     <span id="wait-time-span">calculating<span class="ellipsis"></span></span>
                   </label>
-                  <label class="fs-field-label fs-anim-upper" for="q2" for="">Please enter your info and we will text you when your table is ready.</label>
+                  <label class="fs-field-label fs-anim-upper" for="q2" style="font-weight:400;font-size:0.55em;text-align:center;">Please enter your info and we will text you when your table is ready.</label>
                   <input class="fs-anim-lower" id="q2" name="q2" type="text" placeholder="Name:" required/><br>
-                  <input class="fs-anim-lower" id="q2" name="q2" type="text" placeholder="Phone:" required/>
+                  <input class="fs-anim-lower" id="q2" name="q2" type="phone" placeholder="Phone:" required/>
+</div>
                 </li>
 
                 <li>
-                  <label class="fs-field-label fs-anim-upper" for="q4">Do you have any special requests?</label>
-                  <textarea class="fs-anim-lower" id="q4" name="q4" placeholder="Describe here"></textarea>
+                  <label class="fs-field-label fs-anim-upper" for="q3">Do you have any special requests?</label>
+                  <textarea class="fs-anim-lower" id="q4" name="q3" placeholder="Describe here"></textarea>
                 </li>
 
                 <li>
-                  <label class="fs-field-label fs-anim-upper" for="q5">We will let you know when your table is ready.</label>
+                  <label class="fs-field-label fs-anim-upper" for="q4" style="text-align:center;">We will let you know when your table is ready.</label>
                 </li>
 
               </ol>
@@ -55,17 +59,33 @@
         </div>
         <!-- /container -->
 
-        <script>
+
+<script>
+(function() {
+				var formWrap = document.getElementById( 'fs-form-wrap' );
+				[].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {
+					new SelectFx( el, {
+						stickyPlaceholder: false,
+						onChange: function(val){
+							document.querySelector('span.cs-placeholder').style.backgroundColor = val;
+						}
+					});
+				} );
+				new FForm( formWrap, {
+					onReview : function() {
+						classie.add( document.body, 'overview' ); // for demo purposes only
+					}
+				} );
+			})();
+
+
+
+</script>
+
+        <script type="text/javascript">
         $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 
-        window.addEventListener('load', function() {
-          var formWrap = document.getElementById('fs-form-wrap');
-          new window.FForm(formWrap, {
-            onReview: function() {
-              classie.add(document.body, 'overview'); // for demo purposes only
-            }
-          });
-        }, false);
+
 
         var changeFunction = function(){
           console.log("Party size has been changed...")
@@ -76,7 +96,7 @@
           // AJAX request
           $.getJSON($SCRIPT_ROOT + '/_wait_time',
             // The object to pass to the server
-            { 
+            {
               party_size: partySize
             },
             // The function to call with the response
@@ -108,7 +128,7 @@
               }
             }, 250);
           },
-          'stop' : function () {            
+          'stop' : function () {
             this.run = false;
             clearInterval(this.timer);
             this.count = 0;
