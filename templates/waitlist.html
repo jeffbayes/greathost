@@ -90,20 +90,20 @@
             <div class="row">
               <table class="table">
                 <thead>
-                  <th>Checkin Time</th>
-                  <th># in Party</th>
-                  <th>Name</th>
-                  <th>Actions</th>
+                  <th style="text-align:center;">Checkin Time</th>
+                  <th style="text-align:center;"># in Party</th>
+                  <th style="text-align:center;">Name</th>
+                  <th style="text-align:center;">Actions</th>
                 </thead>
                 <tbody>
 
             {% for person in session.waitlist %}
 
                   <tr>
-                    <td>{{ person.check_time }}</td>
-                    <td>{{ person.party_size }}</td>
-                    <td>{{ person.name }}</td>
-                    <td>
+                    <td style="text-align:center;">{{ person.check_time }}</td>
+                    <td style="text-align:center;">{{ person.party_size }}</td>
+                    <td style="text-align:center;">{{ person.name }}</td>
+                    <td style="text-align:center;">
                       <button type="button" class="btn btn-default"><span id="checkin" class="glyphicon glyphicon-ok"></span></button>
 
                       <button type="button" class="btn btn-default"><span id="remove" class="glyphicon glyphicon-remove"></span></button>

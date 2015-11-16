@@ -38,7 +38,7 @@ font-family: 'Raleway', sans-serif;
 
 .nav-tabs {
 font-size:1.1em;
-background-color: #AAB2BD;
+background-color: #ccd1d9;
 border-radius:4px 4px 4px 4px;
 -webkit-border-radius: 4px 4px 4px 4px;;
 }
@@ -60,6 +60,7 @@ border-radius:4px 4px 4px 4px;
 .navbar-inverse .navbar-nav > .active > a:focus {
   color: #FFF;
   background-color: #DA4453;
+  /*background-color: #ff8898;*/
 }
 
 h1 {
@@ -102,7 +103,7 @@ th, td {
 tr:nth-child(2n) {
     /*background-color: #e6e9ed;*/
 
-  background-color: #ED5565;
+  background-color: #ff8898;
 }
 
 .nav-tabs > li > a {
@@ -115,6 +116,7 @@ tr:nth-child(2n) {
 .nav-tabs > li.active > a:focus,
 .nav-tabs > li.active > a:hover {
   background-color: #ed5565 !important;
+  /*background-color:#ff8898;*/
   border: 1px solid #FFF;
   border-bottom: none;
   color: #fff;
@@ -129,7 +131,7 @@ tr:nth-child(2n) {
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active {
   background-color: #DA4453 !important;
   color: #000;
-  /*border: 1px solid #FFF !important;*/
+  border: 1px solid #FFF !important;
 }
 
 
@@ -150,6 +152,6 @@ a {
 }
 
 .nav > li > a:focus, .nav > li > a:hover {
-  background-color: #ED5565;
+  background-color: #ff8898;
   color: #FFF;
 }
