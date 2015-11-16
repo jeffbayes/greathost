@@ -5,6 +5,7 @@ from flask import url_for
 from flask import redirect
 from flask import jsonify # For AJAX transactions
 
+import uuid
 import arrow
 import random
 import logging
@@ -62,10 +63,16 @@ def admin_page():
 
 @app.route('/admin/tables')
 def table_inventory():
+  flask.session['tables'] = get_tables()
   return render_template('admin-tables.html')
+
+@app.route('/admin/tables/add')
+def table_add_page():
+  return render_template('admin-add-table.html')
 
 @app.route('/admin/notifications')
 def notifications_settings():
+
   return render_template('admin-notifications.html')
 
 @app.route('/admin/analytics')
@@ -80,6 +87,19 @@ def wait_time():
   rando = random.randrange(5, 50)
   wait_time = str(rando) + " minutes."
   return jsonify(result = wait_time)
+
+@app.route('/_add_table')
+def add_table():
+    app.logger.debug("Got a JSON request: CREATE TABLE")
+    table_id = request.args.get('table_id', "111", type=str)
+    max_occupancy = request.args.get('max_occupancy', "222", type=str)
+    uniqueId = uuid.uuid4()
+    record = {  "type": "tables",
+            "table_id": table_id,
+            "max_occupancy": max_occupancy
+        }
+    tableCollection.insert(record)
+    return jsonify(result = "true")
 
 def get_signins():
     """

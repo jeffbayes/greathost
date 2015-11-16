@@ -15,7 +15,8 @@ try:
     db = dbclient.greathost
     signinCollection = db.signins
     tableCollection = db.tables
-    notiCollection = db.notifications
+    notificationCollection = db.notifications
+    restaurantCollection = db.restaurants
 
 except:
     print("Failure opening database. Is Mongo running? Correct password?")
@@ -67,10 +68,22 @@ tableCollection.insert(record)
 ##### NOTIFICATIONS #####
 
 record = {  "type": "notifications",
+            "id": "demo",
             "text_time": 5,
             "text_message": "Stringity string strang you"
         }
 
+notificationCollection.insert(record)
+
+##### RESTAURANT INFO #####
+
+record = { "type": "restaurant_info",
+           "id": "demo",
+           "name": "Glenwood",
+           "op_hours": "9AM to 5PM"
+        }
+
+restaurantCollection.insert(record)
 
 #
 # Read database --- May be useful to see what is in there,
