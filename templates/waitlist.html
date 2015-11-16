@@ -88,7 +88,7 @@
       {% if session.waitlist %}
 
             <div class="row">
-              <table class="table">
+              <table id="wait" class="table">
                 <thead>
                   <th style="text-align:center;">Checkin Time</th>
                   <th style="text-align:center;"># in Party</th>
@@ -129,20 +129,20 @@
             <div class="row">
               <table class="table">
                 <thead>
-                  <th>Name</th>
-                  <th>Table ID</th>
-                  <th>Seated Time</th>
-                  <th># in Party</th>
-                  <th>Actions</th>
+                  <th style="text-align:center;">Name</th>
+                  <th style="text-align:center;">Table ID</th>
+                  <th style="text-align:center;">Seated Time</th>
+                  <th style="text-align:center;"># in Party</th>
+                  <th style="text-align:center;">Actions</th>
                 </thead>
                 <tbody>
                   {% for person in session.seated %}
                   <tr>
-                    <td>{{ person.name }}</td>
-                    <td>{{ person.table_id }}</td>
-                    <td>{{ person.seat_time }}</td>
-                    <td>{{ person.party_size }}</td>
-                    <td>
+                    <td style="text-align:center;">{{ person.name }}</td>
+                    <td style="text-align:center;">{{ person.table_id }}</td>
+                    <td style="text-align:center;">{{ person.seat_time }}</td>
+                    <td style="text-align:center;">{{ person.party_size }}</td>
+                    <td style="text-align:center;">
                       <button type="button" class="btn btn-default">
                         <span id="checkin" class="glyphicon glyphicon-ok"></span>
                       </button>
@@ -164,5 +164,13 @@
       </div>
     </div>
   </div>
+
+<script>
+  $('').on('click', function ()
+{
+   $(this).closest ('tr').remove ();
+}
+);
+</script>
   </body>
 </html>
