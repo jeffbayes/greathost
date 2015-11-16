@@ -294,15 +294,15 @@ FForm.prototype._nextField = function (backto) {
 		this.ctrlSubmit = createElement('button', {
 			cName: 'fs-submit',
 			inner: 'Submit',
+			action: '/',
 			appendTo: this.ctrls
 		});
-		console.log(this.ctrlSubmit);
-		this.ctrlSubmit.onclick( function(){
-			console.log("hi!");
-		});
-
-
 		this._showCtrl(this.ctrlSubmit);
+		console.info(this.ctrlSubmit);
+		this.ctrlSubmit.onclick = function(){document.location.reload(true)};
+
+
+
 		this._hideCtrl(this.ctrlContinue);
 
 
@@ -366,7 +366,7 @@ FForm.prototype._nextField = function (backto) {
 				self._hideCtrl(self.ctrlContinue);
 				self._hideCtrl(self.ctrlFldStatus);
 
-
+				document.location.reload(true);
 				// replace class fs-form-full with fs-form-overview
 				// classie.remove(self.formEl, 'fs-form-full');
 				// classie.add(self.formEl, 'fs-form-overview');
